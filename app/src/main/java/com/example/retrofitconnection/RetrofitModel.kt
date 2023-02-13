@@ -16,6 +16,7 @@ data class QuoteList(
 )
 
 data class Result(
+    @SerializedName("id")
     val _id: String,
     val author: String,
     val authorSlug: String,
