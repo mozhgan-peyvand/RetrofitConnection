@@ -5,10 +5,10 @@ import com.example.retrofitconnection.network.Resource
 import com.example.retrofitconnection.network.safeApiCall
 
 class RemoteDataSource constructor(
-    private val quotesApi: QuotesApi
+    private val retrofitService: RetrofitService
 ) {
 
-    val baseRemoteDataSource = BaseRemoteDataSource()
+    private val baseRemoteDataSource = BaseRemoteDataSource()
 
     suspend fun getQuotesList() : Resource<QuoteList> = safeApiCall(
         call = { requestQuotesList() },
@@ -20,7 +20,7 @@ class RemoteDataSource constructor(
 
 
         return baseRemoteDataSource.checkApiResult(
-            response = quotesApi.getQuotes()
+            response = retrofitService.getQuotes()
         )
     }
 }

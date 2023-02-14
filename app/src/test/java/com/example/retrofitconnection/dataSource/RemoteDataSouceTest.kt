@@ -1,6 +1,6 @@
 package com.example.retrofitconnection.dataSource
 
-import com.example.retrofitconnection.QuotesApi
+import com.example.retrofitconnection.RetrofitService
 import com.example.retrofitconnection.RemoteDataSource
 import com.example.retrofitconnection.network.Resource
 import com.google.gson.Gson
@@ -20,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class RemoteDataSouceTest {
 
     private lateinit var mockWebServer: MockWebServer
-    private lateinit var apiClient: QuotesApi
+    private lateinit var apiClient: RetrofitService
 
     private var client = OkHttpClient.Builder().build()
     var gson: Gson = Gson()
@@ -34,7 +34,7 @@ class RemoteDataSouceTest {
             .addConverterFactory(GsonConverterFactory.create(gson))
             .baseUrl(mockWebServer.url("/"))
             .build()
-            .create(QuotesApi::class.java)
+            .create(RetrofitService::class.java)
     }
 
     @After
