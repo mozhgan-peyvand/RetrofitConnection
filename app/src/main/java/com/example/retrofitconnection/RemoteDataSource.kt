@@ -1,6 +1,6 @@
 package com.example.retrofitconnection
 
-import io.github.metmuseum.themet.common.network.BaseRemoteDataSource
+import com.example.retrofitconnection.network.BaseRemoteDataSource
 import com.example.retrofitconnection.network.Resource
 import com.example.retrofitconnection.network.safeApiCall
 
@@ -16,9 +16,6 @@ class RemoteDataSource constructor(
     )
 
     suspend fun requestQuotesList(): Resource<QuoteList> {
-
-
-
         return baseRemoteDataSource.checkApiResult(
             response = retrofitService.getQuotes()
         )

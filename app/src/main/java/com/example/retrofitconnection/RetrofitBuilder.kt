@@ -8,14 +8,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 object RetrofitHelper {
-    var gson = GsonBuilder()
-        .setLenient()
-        .create()
+
     val baseUrl = "https://quotable.io/"
 
     fun getInstance(): Retrofit {
         return Retrofit.Builder().baseUrl(baseUrl)
-            .addConverterFactory(GsonConverterFactory.create(gson))
+            .addConverterFactory(GsonConverterFactory.create())
             // we need to add converter factory to
             // convert JSON object to Java object
             .build()

@@ -25,17 +25,17 @@ import com.example.retrofitconnection.network.Resource
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
+    private val remoteDataSource =
+        RemoteDataSource(RetrofitHelper.getInstance().create(RetrofitService::class.java))
+
     @SuppressLint("CoroutineCreationDuringComposition")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             val coroutineScope = rememberCoroutineScope()
-            val resultList = remember {
-                mutableStateListOf<Result>()
-            }
+            val resultList = remember { mutableStateListOf<Result>() }
 
-            val remoteDataSource =
-                RemoteDataSource(RetrofitHelper.getInstance().create(RetrofitService::class.java))
+
             RetrofitConnectionTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
@@ -71,13 +71,12 @@ class MainActivity : ComponentActivity() {
                                     Text(text = it.author)
                                     Text(text = it.dateAdded)
                                 }
-                                Text(text = it.authorSlug)
+                                Text(text = it.authorSpecial)
                             }
                             Divider(modifier = Modifier.height(4.dp))
                         }
                     }
                 }
-
             }
         }
     }

@@ -8,3 +8,5 @@ interface RetrofitService {
     @GET("/quotes")
     suspend fun getQuotes() : Response<QuoteList>
 }
+
+

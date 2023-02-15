@@ -11,7 +11,7 @@ val QuoteList = QuoteList(
         Result(
             _id = "lpxXplIA4ie",
             author = "Yogi Berra",
-            authorSlug = "yogi-berra",
+            authorSpecial = "yogi-berra",
             content = "Half the lies they tell about me aren't true.",
             dateAdded = "2022-07-06",
             dateModified = "2022-07-08",

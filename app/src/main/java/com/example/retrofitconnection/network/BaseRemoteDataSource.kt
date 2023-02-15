@@ -1,6 +1,6 @@
-package io.github.metmuseum.themet.common.network
+package com.example.retrofitconnection.network
 
-import com.example.retrofitconnection.network.Resource
+import io.github.metmuseum.themet.common.network.Exceptions
 import retrofit2.Response
 
 

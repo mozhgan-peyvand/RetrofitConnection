@@ -16,13 +16,21 @@ data class QuoteList(
 )
 
 data class Result(
-    @SerializedName("id")
     val _id: String,
     val author: String,
-    val authorSlug: String,
+    @SerializedName("authorSlug")
+    val authorSpecial: String,
     val content: String,
     val dateAdded: String,
     val dateModified: String,
     val length: Int,
     val tags: List<String>
 )
+
+
+
+
+//"id": "1",
+//"employee_name": "Jack Full",
+//"employee_salary": "300800",
+//"employee_age": "61"
