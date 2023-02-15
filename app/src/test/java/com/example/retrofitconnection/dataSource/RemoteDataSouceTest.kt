@@ -4,6 +4,7 @@ import com.example.retrofitconnection.RetrofitService
 import com.example.retrofitconnection.RemoteDataSource
 import com.example.retrofitconnection.network.Resource
 import com.google.gson.Gson
+import com.squareup.moshi.Moshi
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
@@ -15,6 +16,7 @@ import org.junit.Before
 import org.junit.Test
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 
 
 class RemoteDataSouceTest {
@@ -23,7 +25,8 @@ class RemoteDataSouceTest {
     private lateinit var apiClient: RetrofitService
 
     private var client = OkHttpClient.Builder().build()
-    var gson: Gson = Gson()
+//    var gson: Gson = Gson(
+    var moshi = Moshi.Builder().build()
 
     @Before
     fun createServer() {
@@ -31,7 +34,7 @@ class RemoteDataSouceTest {
 
         apiClient = Retrofit.Builder()
             .client(client)
-            .addConverterFactory(GsonConverterFactory.create(gson))
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
             .baseUrl(mockWebServer.url("/"))
             .build()
             .create(RetrofitService::class.java)
