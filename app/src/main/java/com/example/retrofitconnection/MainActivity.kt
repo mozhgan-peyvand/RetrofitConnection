@@ -71,7 +71,7 @@ class MainActivity : ComponentActivity() {
                                     Text(text = it.author)
                                     Text(text = it.dateAdded)
                                 }
-                                Text(text = it.authorSpecial)
+                                Text(text = it.authorSpecial?: "")
                             }
                             Divider(modifier = Modifier.height(4.dp))
                         }

@@ -15,7 +15,7 @@ class RemoteDataSource constructor(
         errorMessage = "error message for quotes"
     )
 
-    suspend fun requestQuotesList(): Resource<QuoteList> {
+    private suspend fun requestQuotesList(): Resource<QuoteList> {
         return baseRemoteDataSource.checkApiResult(
             response = retrofitService.getQuotes()
         )
